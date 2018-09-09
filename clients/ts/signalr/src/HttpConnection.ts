@@ -194,7 +194,7 @@ export class HttpConnection implements IConnection {
                 throw Error(`Unexpected status code returned from negotiate ${response.statusCode}`);
             }
 
-            return JSON.parse(response.content as string) as INegotiateResponse;
+            return response.content as INegotiateResponse;
         } catch (e) {
             this.logger.log(LogLevel.Error, "Failed to complete negotiation with the server: " + e);
             throw e;
